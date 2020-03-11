@@ -1,0 +1,23 @@
+{
+    "less.compile": {
+        "main": ["${workspaceRoot}/public/css/style.less"],
+        "autoprefixer": "> 5%, last 2 Chrome versions, not ie 6-9",
+        "ieCompat": true,
+        "compress": true,
+        "sourceMap": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "public/css/style.css":true,
+        "public/css/style.css.map":true
+    }
+}
