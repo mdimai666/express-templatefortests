@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var request = require('request-promise')
+var axios = require('axios')
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -10,14 +10,20 @@ router.get('/', function (req, res, next) {
 
 router.get('/ext', async (req, res, next) => {
 
-  let user = await request('http://localhost/api_v1/accounts/profile/', {
-    json: true,
-    headers: {
-      'Authorization': 'Bearer dd'
-    }
-  })
+  try {
 
-  res.json(jj(user))
+
+    let user = await axios.get('http://localhost/api_v1/accounts/profile/', {
+      json: true,
+      headers: {
+        'Authorization': 'Bearer dd'
+      }
+    })
+
+    res.json(jj(user.data))
+  } catch (error) {
+    res.json(jj(error))
+  }
 })
 
 module.exports = router;
